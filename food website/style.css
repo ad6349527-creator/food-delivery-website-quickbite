@@ -1,0 +1,394 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --orange: #ff6847;
+  --dark: #252a25;
+  --cream: #fffaf2;
+  --green: #315b3b;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 6%;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 12px #0000000c;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+  color: var(--dark);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+#searchInput {
+  flex: 1;
+  min-width: 100px;
+}
+
+input, select {
+  padding: 12px;
+  border: 1px solid #deded6;
+  border-radius: 9px;
+  background: white;
+}
+
+header button, .categories button, .filters button {
+  padding: 11px 15px;
+  border-radius: 9px;
+  background: #f1eee6;
+  color: var(--dark);
+}
+
+header button:hover,
+.categories button:hover,
+.filters button:hover {
+  background: #ffe4d9;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 70px 8%;
+  background: #f8e9d4;
+}
+
+.hero > div:first-child {
+  max-width: 600px;
+}
+
+.tagline {
+  color: var(--green);
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 5vw, 60px);
+  line-height: 1.15;
+  margin: 15px 0;
+}
+
+.hero p {
+  margin-bottom: 15px;
+}
+
+.hero button, .checkout {
+  background: var(--orange);
+  color: white;
+  padding: 13px 22px;
+  border-radius: 9px;
+  font-weight: bold;
+}
+
+.hero button:hover, .checkout:hover {
+  background: #e95232;
+}
+
+.hero-emoji {
+  font-size: clamp(100px, 20vw, 230px);
+}
+
+main {
+  padding: 45px 7%;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+.categories {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 20px 0 40px;
+}
+
+.menu-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.menu-heading p {
+  color: #777;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.filters button.active {
+  background: var(--green);
+  color: white;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.food-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px #0000000b;
+  transition: transform 0.2s;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+}
+
+.food-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+  background: #eee;
+}
+
+.food-info {
+  padding: 17px;
+}
+
+.food-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.food-title h3 {
+  font-size: 18px;
+}
+
+.price {
+  color: var(--orange);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.description {
+  color: #777;
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 13px;
+  margin: 12px 0;
+}
+
+.rating {
+  color: #a46b00;
+  font-weight: bold;
+}
+
+.add-btn {
+  width: 100%;
+  padding: 11px;
+  border-radius: 8px;
+  background: var(--green);
+  color: white;
+  font-weight: bold;
+}
+
+.add-btn:hover {
+  background: #24462d;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #0008;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  padding: 15px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.panel {
+  background: white;
+  padding: 28px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close {
+  float: right;
+  background: #eee;
+  padding: 7px 10px;
+  border-radius: 7px;
+}
+
+#cartItems {
+  margin: 20px 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item button {
+  padding: 5px 9px;
+  margin: 0 3px;
+  border-radius: 5px;
+  background: #eee;
+}
+
+.checkout {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.note {
+  color: #777;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.login-panel label {
+  display: block;
+  margin-top: 15px;
+}
+
+.login-panel input {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.toast {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dark);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 9px;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+footer {
+  text-align: center;
+  padding: 35px;
+  background: #263e2d;
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .food-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  header {
+    flex-wrap: wrap;
+  }
+
+  #searchInput {
+    order: 3;
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 12px;
+    gap: 9px;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  header button {
+    padding: 9px;
+    font-size: 13px;
+  }
+
+  .hero {
+    padding: 45px 7%;
+  }
+
+  .hero-emoji {
+    font-size: 75px;
+  }
+
+  main {
+    padding: 30px 5%;
+  }
+
+  .food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .food-card img {
+    height: 220px;
+  }
+
+  .menu-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
